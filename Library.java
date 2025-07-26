@@ -6,7 +6,6 @@ import java.time.Year;
 /**
  * A library management class. Has a simple shell that users can interact with to add/remove/checkout/list books in the library.
  * Also allows saving the library state to a file and reloading it from the file.
- * @author Joey Lu
  */
 public class Library {
     private List<Book> books;
@@ -19,7 +18,6 @@ public class Library {
 
     /**
      * @return the number of books (not number of copies) in the library.
-     * @author Leo
      */
     public int getNumberOfBooks() {
         return books.size();
@@ -28,7 +26,6 @@ public class Library {
     /**
      * Adds a book to the library. If the library already has this book then it
      * adds the number of copies the library has.
-     * @author Leo
      */
     public void addBook(Book newBook) {
         String isbn = newBook.getIsbn();
@@ -47,7 +44,6 @@ public class Library {
      * @param isbn The ISBN of the book to check out.
      * @throws IllegalArgumentException if ISBN is null or empty, or if the book does not exist or has no available copies.
      * @throws NoCopiesAvailableException if book exists but has no available copies (from Book class).
-     * @author Joey Lu
      */
     public void checkout(String isbn) {
         if (isbn == null || isbn.trim().isEmpty()) {
@@ -68,7 +64,6 @@ public class Library {
      * @throws IllegalArgumentException if ISBN is null or return.
      * @throws RunTimeException if book does not exist or if all copies are already in library.
      * @throws AllCopiesAlreadyCheckedInException if all copies are already in library (from Book class).
-     * @author Joey Lu
      */
     public void returnBook(String isbn) {
         if (isbn == null || isbn.trim().isEmpty()) {
@@ -90,7 +85,6 @@ public class Library {
      * @return The book if found.
      * @throws IllegalArgumentException if title or author is null or empty.
      * @throws RuntimeException if the book is not found.
-     * @author Joey Lu
      */
     public Book findByTitleAndAuthor(String title, String author) {
         if (title == null || title.trim().isEmpty() || author == null || author.trim().isEmpty()) {
@@ -111,7 +105,6 @@ public class Library {
      * @return The book if found.
      * @throws IllegalArgumentException if ISBN is null or empty.
      * @throws RuntimeException if the book is not found.
-     * @author Joey Lu
      */
     public Book findByISBN(String isbn) {
         if (isbn == null || isbn.trim().isEmpty()) {
@@ -129,7 +122,6 @@ public class Library {
      * Big-O Analysis: O(n) on average where n is the number of books in the internal hashmap.
      * @param filename the name of the file to be written to
      * @throws IOException if the file cannot be opened for writing
-     * @author Anthony Ngo
      */
     public void save(String filename) {
         File out = new File(filename);
@@ -153,7 +145,6 @@ public class Library {
      * Loads the contents of this library from the given file. All existing data is cleared.
      * Big-O Analysis: O(n) where n is the number of lines in the file.
      * @param filename the name of the file to be loaded
-     * @author Jonathan Tran
      */
     public void load(String filename) {
         Map<String, Book> loadedBooks = new HashMap<>();
